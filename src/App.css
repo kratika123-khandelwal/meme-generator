@@ -1,38 +1,163 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /*font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;*/
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== APP CONTAINER ===== */
 .App {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 500px;
+  width: 95%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ===== HEADING ===== */
+.App h1 {
+  font-size: 2.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ===== INPUTS & BUTTONS ===== */
+.controls {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.controls input {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+.controls input:focus {
+  border-color: #007bff;
+}
+
+.controls button,
+.download-button {
+  background-color: #007bff;
   color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.controls button:hover,
+.download-button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
+/* ===== MEME CONTAINER ===== */
+.meme {
+  position: relative;
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.meme img {
+  width: 100%;
+  max-width: 450px;
+  display: block;
+  border-radius: 12px;
+}
+
+/* ===== TEXT ON IMAGE ===== */
+.top-text,
+.bottom-text {
+  position: absolute;
+  width: 100%;
+  color: white;
+  font-size: 2rem;
+  font-family: 'Impact', Arial, sans-serif;
+  text-shadow: 2px 2px 5px black;
+  text-align: center;
+  padding: 12px;
+  letter-spacing: 1px;
+}
+
+.top-text {
+  top: 0;
+}
+
+.bottom-text {
+  bottom: 0;
+}
+
+/* ===== FADE IN ANIMATION ===== */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-15px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+  .App {
+    padding: 20px;
+  }
+
+  .App h1 {
+    font-size: 2rem;
+  }
+
+  .controls input,
+  .controls button {
+    width: 100%;
+  }
+
+  .top-text,
+  .bottom-text {
+    font-size: 1.5rem;
+  }
+}
+
+.history {
+  margin-top: 30px;
+}
+
+.history h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.history-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
